@@ -20,7 +20,7 @@
                 </ul>
             </div>
             <div class="content">
-                <h1>Privacy Preserving Data Sharing Platform</h1>
+                <h1>Secure Encryption and Decryption Tool</h1>
                 <div>
                 <a href="login.php"> <button type="button">Login</button> </a> 
                 </div>
