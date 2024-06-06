@@ -10,6 +10,19 @@ function pwdMatch($password,$cpassword){
     return $results;
   }
 
+//loading the trainer 
+$model = joblib_load ('password_strenght_model.pkl');
+$vectorizer = joblib_load ('password_vectorizer.pkl');
+
+function predictPasswordStrength($password) {
+    global $model, $vectorizer;
+    // Convert password to TF-IDF vector using the loaded vectorizer
+    $password_vectorized = $vectorizer->transform([$password]);
+    // Predict password strength using the loaded model
+    $strength = $model->predict($password_vectorized);
+    return $strength[0];
+}
+
   function UnameExists($con,$employeeid){
     $sql = "SELECT * FROM user WHERE employeeid = ?; ";
     $stmt = mysqli_stmt_init($con);
